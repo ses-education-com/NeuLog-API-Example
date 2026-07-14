@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="Cache-Control" CONTENT="no-cache">
+        <meta http-equiv="Expires" CONTENT="Mon, 22 Jul 1980 11:12:01 GMT">
+        <title> NeuLog API </title>
+        <script src="jquery.js"></script>
+        <script src="sensors.js"></script>
+        <style>
+        .Style_1
+        {
+        color : Blue;
+        font-size : 13pt;
+        font-weight : bold;
+        }
+
+        .Style_2
+        {
+        color : Red;
+        font-size : 20pt;
+        font-weight : bold;
+        }
+
+        .TextFields
+        {
+          width:30px;
+        }
+        </style>
+    </head>
+
+    <body>
+        <div id="Div_Title">
+            <span class="Style_2"> NeuLog API - User application demo V02</span>
+            <br />
+            <br />
+            <span class="Style_1"> API server port number </span>
+            <input type="text" id="input_port_number" value="22001" style="width:100px;" />
+        </div>
+        <br />
+
+        <div id="div_version">
+            <span class="Style_1"> Get API server version </span>
+            <input type="button" id="btn_version" value="Get version" />
+            <br />
+            <div id="res_version">
+            </div>
+            <div id="_res_version">
+            </div>
+            <div id="__res_version">
+            </div>
+        </div>
+        <br />
+
+        <div id="div_status">
+            <span class="Style_1"> Get API server status </span>
+            <input type="button" id="btn_status" value="Get status" />
+            <br />
+            <div id="res_status">
+            </div>
+            <div id="_res_status">
+            </div>
+            <div id="__res_status">
+            </div>
+        </div>
+        <br />
+
+        <div id="div_get_values">
+            <span class="Style_1"> Get values </span>
+            <input type="text" id="input_get_values" value="[Sound],[1],[Light],[1]" style="width:400px;" />
+            <input type="button" id="btn_get_values" value="Get values" />
+            <br />
+            <div id="res_get_values">
+            </div>
+            <div id="_res_get_values">
+            </div>
+            <div id="__res_get_values">
+            </div>
+        </div>
+        <br />
+
+        <div id="div_reset_sensor">
+            <span class="Style_1"> Reset sensor </span>
+            <input type="text" id="input_reset_sensor" value="[PH],[1]" style="width:200px;" />
+            <input type="button" id="btn_reset_sensor" value="Reset" />
+            <br />
+            <div id="res_reset_sensor">
+            </div>
+            <div id="_res_reset_sensor">
+            </div>
+            <div id="__res_reset_sensor">
+            </div>
+        </div>
+        <br />
+
+        <div id="div_set_dir">
+            <span class="Style_1"> Set positive direction </span>
+            <input type="text" id="input_set_dir" value="[Force],[1],[1]" style="width:200px;" />
+            <input type="button" id="btn_set_dir" value="Set direction" />
+            <br />
+            <div id="res_set_dir">
+            </div>
+            <div id="_res_set_dir">
+            </div>
+            <div id="__res_set_dir">
+            </div>
+       </div>
+        <br />
+
+        <div id="div_start_exp">
+            <span class="Style_1"> Start experiment </span>
+            <input type="text" id="input_start_exp" value="[Sound],[1],[Light],[1],[8],[101]" style="width:400px;" />
+            <input type="button" id="btn_start_exp" value="Start exp" />
+            <br />
+            <div id="res_start_exp">
+            </div>
+            <div id="_res_start_exp">
+            </div>
+            <div id="__res_start_exp">
+            </div>
+        </div>
+        <br />
+
+        <div id="div_stop_exp">
+            <span class="Style_1"> Stop Experiment </span>
+            <input type="button" id="btn_stop_exp" value="Stop exp" />
+            <br />
+            <div id="res_stop_exp">
+            </div>
+            <div id="_res_stop_exp">
+            </div>
+            <div id="__res_stop_exp">
+            </div>
+        </div>
+        <br />
+
+        <div id="div_get_samples">
+            <span class="Style_1"> Get experiment samples </span>
+            <input type="button" id="btn_get_samples" value="Get samples" />
+            <br />
+            <div id="res_get_samples">
+            </div>
+            <div id="_res_get_samples">
+            </div>
+            <div id="__res_get_samples">
+            </div>
+        </div>
+        <br />
+
+       <div id="div_get_samples_clear">
+            <span class="Style_1"> Get experiment samples & clear </span>
+            <input type="button" id="btn_get_samples_clear" value="Get samples & clear" />
+            <br />
+            <div id="res_get_samples_clear">
+            </div>
+            <div id="_res_get_samples_clear">
+            </div>
+            <div id="__res_get_samples_clear">
+            </div>
+        </div>
+        <br />
+
+        <div id="div_set_range">
+            <span class="Style_1"> Set range </span>
+            <input type="text" id="input_set_range" value="[Light],[1],[2]" style="width:200px;" />
+            <input type="button" id="btn_set_range" value="Set range" />
+            <br />
+            <div id="res_set_range">
+            </div>
+            <div id="_res_set_range">
+            </div>
+            <div id="__res_set_range">
+            </div>
+        </div>
+        <br />
+
+        <div id="div_set_id">
+            <span class="Style_1"> Set id </span>
+            <input type="text" id="input_set_id" value="[2]" style="width:50px;" />
+            <input type="button" id="btn_set_id" value="Set ID" />
+            <br />
+            <div id="res_set_id">
+            </div>
+            <div id="_res_set_id">
+            </div>
+            <div id="__res_set_id">
+            </div>
+        </div>
+        <br />
+
+        <div id="div_set_rfid">
+            <span class="Style_1"> Set RF id </span>
+            <input type="text" id="input_set_rfid" value="[2]" style="width:50px;" />
+            <input type="button" id="btn_set_rfid" value="Set RFID" />
+            <br />
+            <div id="res_set_rfid">
+            </div>
+            <div id="_res_set_rfid">
+            </div>
+            <div id="__res_set_rfid">
+            </div>
+        </div>
+        <br />
+
+         <div id="div_start_usb">
+            <span class="Style_1"> Start USB connectivity </span>
+            <input type="button" id="btn_start_usb" value="Start USB" />
+            <br />
+            <div id="res_start_usb">
+            </div>
+            <div id="_res_start_usb">
+            </div>
+            <div id="__res_start_usb">
+            </div>
+        </div>
+        <br />
+
+         <div id="div_start_bt">
+            <span class="Style_1"> Start Bluetooth connectivity </span>
+            <input type="button" id="btn_start_bt" value="Start Bluetooth" />
+            <br />
+            <div id="res_start_bt">
+            </div>
+            <div id="_res_start_bt">
+            </div>
+            <div id="__res_start_bt">
+            </div>
+        </div>
+        <br />
+
+        <div id="div_get_usb_status">
+            <span class="Style_1"> Get USB status </span>
+            <input type="button" id="btn_get_usb_status" value="Get USB status" />
+            <br />
+            <div id="res_get_usb_status">
+            </div>
+            <div id="_res_get_usb_status">
+            </div>
+            <div id="__res_get_usb_status">
+            </div>
+        </div>
+        <br />
+
+        <div id="div_get_bt_status">
+            <span class="Style_1"> Get Bluethooth status </span>
+            <input type="button" id="btn_get_bt_status" value="Get Bluetooth status" />
+            <br />
+            <div id="res_get_bt_status">
+            </div>
+            <div id="_res_get_bt_status">
+            </div>
+            <div id="__res_get_bt_status">
+            </div>
+        </div>
+        <br />
+
+        <div id="div_exit">
+            <span class="Style_1"> Exit and close API </span>
+            <input type="button" id="btn_exit" value="Close API" />
+            <br />
+            <div id="res_exit">
+            </div>
+            <div id="_res_exit">
+            </div>
+            <div id="__res_exit">
+            </div>
+        </div>
+        <br />
+
+
+        <div id="div_gate_exp">
+            <span class="Style_1"> Photo Gate Experiments </span>
+            <br />
+            <span class="Style_1"> Velocity with single gate [ID],[X] </span>
+            <input type="text" id="input_gate1" value="[1],[100]" style="width:200px;" />
+            <input type="button" id="btn_gate1" value="Start exp" />
+            <br />
+            <span class="Style_1"> Acceleration with single gate [ID],[X],[Y] </span>
+            <input type="text" id="input_gate2" value="[1],[30],[30]" style="width:200px;" />
+            <input type="button" id="btn_gate2" value="Start exp" />
+            <br />
+            <span class="Style_1"> Acceleration with two gates [ID1],[ID2],[X] </span>
+            <input type="text" id="input_gate3" value="[1],[2],[100]" style="width:200px;" />
+            <input type="button" id="btn_gate3" value="Start exp" />
+            <br />
+            <span class="Style_1"> Velocity with two gates [ID1],[ID2],[X1],[X2],[M1],[M2] </span>
+            <input type="text" id="input_gate4" value="[1],[2],[100],[100],[50],[50]" style="width:200px;" />
+            <input type="button" id="btn_gate4" value="Start exp" />
+            <br />
+            <span class="Style_1"> Delta between two gates StartGateExp:[ID1],[ID2],[X] </span>
+            <input type="text" id="input_gate5" value="[1],[2],[100]" style="width:200px;" />
+            <input type="button" id="btn_gate5" value="Start exp" />
+            <br />
+            <span class="Style_1"> Time with timing card [ID],[DURATION] </span>
+            <input type="text" id="input_gate6" value="[1],[300]" style="width:200px;" />
+            <input type="button" id="btn_gate6" value="Start exp" />
+            <br />
+            <div id="res_gate_exp">
+            </div>
+            <div id="_res_gate_exp">
+            </div>
+            <div id="__res_gate_exp">
+            </div>
+        </div>
+        <br />
+
+        <div id="div_gate_samples">
+            <span class="Style_1"> Read gate results </span>
+            <input type="button" id="btn_read_gate" value="Get samples" />
+            <br />
+            <div id="res_gate_samples">
+            </div>
+            <div id="_res_gate_samples">
+            </div>
+            <div id="__res_gate_samples">
+            </div>
+        </div>
+        <br />
+        
+    </body>
+</html>
