@@ -10,7 +10,11 @@ The examples illustrate how to access the API from different programming languag
 Before running the examples, make sure that:
 
 - NeuLog API is installed on your computer.
+  NeuLog API can be download from
+  https://neulog.com/Downloads/NeuLogAPI_install.exe
+
 - At least one NeuLog sensor is connected through a NeuLog USB Module or Bluetooth Module.
+
 - The NeuLog API application is running.
 
 By default, the API listens on:
